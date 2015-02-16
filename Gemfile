@@ -51,5 +51,5 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'postmark-rails'
+  # gem 'postmark-rails'
 end
