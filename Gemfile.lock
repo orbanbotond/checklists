@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/orbanbotond/subscribem.git
-  revision: 812c42a822ff8741295cc73d8f3006edde571552
+  revision: e32f3db819586f7259e3c0d5670edb923c9f0d72
   specs:
-    subscribem (0.0.1)
+    subscribem (0.0.002)
       devise
       houser (= 1.0.2)
       jquery-rails
@@ -97,7 +97,7 @@ GEM
     houser (1.0.2)
       rack
     i18n (0.7.0)
-    jbuilder (2.2.6)
+    jbuilder (2.2.7)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.3)
@@ -190,8 +190,8 @@ GEM
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    sass (3.4.11)
-    sass-rails (5.0.1)
+    sass (3.4.12)
+    sass-rails (5.0.0)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -207,7 +207,7 @@ GEM
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
-    spring (1.3.1)
+    spring (1.3.2)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
