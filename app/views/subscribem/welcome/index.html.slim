@@ -1,2 +1,32 @@
-= link_to "Account Sign Up", sign_up_path
-= link_to "Login", new_user_session_path
+.container
+  .header
+    nav
+      ul.nav.nav-pills.pull-right
+        li.active role="presentation" 
+          a href="#"  Home
+        li role="presentation" 
+          a href="#"  About
+        li role="presentation" 
+          a href="#"  Contact
+    h3.text-muted Checklists
+  .jumbotron
+    h1 Welcome To Checklists
+    p.lead The easiest way to create and process your checklists
+    p
+      = link_to "Sign up today", sign_up_path, role: 'button', class: 'btn btn-lg btn-success'
+  .row.marketing
+    .col-lg-6
+      h4 Repetitions
+      p If you have to process many repetitive tasks.
+      h4 Helps you to keep in mind
+      p If you forget some of the routine tasks.
+    .col-lg-6
+      h4 Be social
+      p Share with others your proven checklists or use checklists which were polished by others.
+      h4 Easy to use
+      p The easiest to use and manage checklist on the globe.
+  footer.footer
+    p © Logic Optimum 2014
+/! /container
+/! IE10 viewport hack for Surface/desktop Windows 8 bug
+= javascript_include_tag "ie10-viewport-bug-workaround"

@@ -5,10 +5,13 @@
     = account.input :subdomain
     = account.submit
 - else
-  h2 Sign Up
-  = simple_form_for(@account) do |account|
+  h2.col-lg-12 Sign Up
+  = simple_form_for @account, html: {class: 'form-horizontal multiple_tags', role: 'form'}, defaults: { label_html: { class: 'col-lg-2' }, input_html: { class: 'form-control'} } do |account|
     = account.input :name
     = account.simple_fields_for :owner do |owner|
       = render 'subscribem/account/users/form', :user => owner
     = account.input :subdomain
-    = account.submit
+
+    .form-group
+      .col-lg-offset-2.col-lg-10
+        = account.submit class: 'btn btn-default'
