@@ -1,2 +1,3 @@
-- flash.each do |k,v|
-  .navbar-form.text-center class=("flash #{k}") = v
+.container
+  - flash.each do |k,v|
+    .navbar-form.text-center.alert-success class=("flash #{k}") = v
