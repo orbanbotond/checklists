@@ -88,6 +88,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.3.0)
     faraday (0.9.1)
@@ -199,6 +200,23 @@ GEM
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rspec-core (3.2.0)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-rails (3.2.0)
+      actionpack (>= 3.0, <= 4.2)
+      activesupport (>= 3.0, <= 4.2)
+      railties (>= 3.0, <= 4.2)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.1)
     sass (3.4.12)
     sass-rails (5.0.0)
       railties (>= 4.0.0, < 5.0)
@@ -217,6 +235,8 @@ GEM
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
     spring (1.3.2)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -258,9 +278,11 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.0)
   rails_12factor
+  rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
+  spring-commands-rspec
   subscribem!
   turbolinks
   uglifier (>= 1.3.0)
