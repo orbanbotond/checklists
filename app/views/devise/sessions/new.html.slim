@@ -1,0 +1,14 @@
+h2.col-lg-12.text-center Sign in
+
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal multiple_tags col-lg-offset-3', role: 'form'}, defaults: { label_html: { class: 'col-lg-2' }, input_html: { class: 'form-control'} } do |f|
+  .form-inputs
+    = f.input :email, required: false, autofocus: true
+    = f.input :password, required: false
+    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+  .form-actions
+    .form-group
+      .col-lg-offset-2.col-lg-10
+        = f.button :submit, "Sign in"
+
+= render "devise/shared/links"
