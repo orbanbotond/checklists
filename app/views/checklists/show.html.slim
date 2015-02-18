@@ -1,0 +1,6 @@
+= simple_form_for @checklist, html: {class: 'form-horizontal multiple_tags', role: 'form'}, defaults: { label_html: { class: 'col-lg-4' }, input_html: { class: 'form-control'} }  do |f|
+  = f.input :name, placeholder: 'Preparing for a party'
+  = f.fields_for :tasks do |tf|
+    = render 'task_fields', f: tf
+  = link_to_add_fields "Add Task", f, :tasks
+  = f.submit

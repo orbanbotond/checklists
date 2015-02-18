@@ -1,5 +1,4 @@
-class ChecklistsController < ApplicationController
-  inherit_resources
+class ChecklistsController < RestfullController
 
   def new
     @checklist = Checklist.new

@@ -8,6 +8,10 @@ RSpec.describe ChecklistsController do
     sign_in(user)
   end
 
+  context 'class hierarchy' do
+    it { is_expected.to be_a(RestfullController)}
+  end
+
   describe "GET new_checklist" do
     it 'renders the new template' do
       get :new
@@ -23,14 +27,13 @@ RSpec.describe ChecklistsController do
     end
   end
 
-  # describe "POST create" do
-  #   #
-  #   it "creates a project" do
-  #     post :create, project: {name: "Runway", tasks: "Start something:2"}
-  #     expect(response).to redirect_to(projects_path)
-  #     expect(assigns(:action).project.name).to eq("Runway")
-  #   end
-  #   #
+  describe "POST create" do
+
+    it "creates a checklist" do
+      post :create, checklist: {name: "Runway", tasks: [{value: false, description: 'First One'}, {value:true,description:'Second One'}]}
+      # expect(response).to redirect_to(checklist_path(1))
+    end
+  end
 
   #   #
   #   it "creates a project (mock version)" do
