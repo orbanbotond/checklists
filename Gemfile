@@ -34,6 +34,12 @@ gem 'subscribem', :path => "../multitenancy/subscribem"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'inherited_resources', '~> 1.6'
+
+gem 'pry'
+gem 'pry-nav'
+
+
 group :development do
   gem 'quiet_assets'
   gem "spring-commands-rspec"
@@ -41,6 +47,9 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem "factory_girl_rails", "~> 4.5"
+  gem 'database_cleaner', '~> 1.4'
+  gem 'capybara', '~> 2.4'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -50,6 +59,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'shoulda-matchers', require: false
 end
 
 group :production do
