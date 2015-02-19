@@ -1,7 +1,8 @@
-PATH
-  remote: ../multitenancy/subscribem
+GIT
+  remote: https://github.com/orbanbotond/subscribem.git
+  revision: 677a555f030ffcef1f819b8b5c989792ff54a989
   specs:
-    subscribem (0.0.004)
+    subscribem (0.0.005)
       devise
       houser (= 1.0.2)
       jquery-rails
