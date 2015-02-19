@@ -1,4 +1,4 @@
-- if @checklists.present?
-  = render 'full'
+- if collection.present?
+  = render 'full', locals: {collection: collection}
 - else
   = render 'empty'

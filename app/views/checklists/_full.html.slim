@@ -1,4 +1,4 @@
 p Your checklists
 ul
-  - @checklists.each do |l|
+  - collection.each do |l|
     li= link_to l.name, checklist_path(l)

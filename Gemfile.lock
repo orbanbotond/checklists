@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/orbanbotond/subscribem.git
-  revision: 875ca3a2d815bedca2fc39e1425482bb3fbba5b2
+PATH
+  remote: ../multitenancy/subscribem
   specs:
     subscribem (0.0.004)
       devise
