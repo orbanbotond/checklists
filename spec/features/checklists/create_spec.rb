@@ -6,11 +6,6 @@ feature 'Create a Checklist' do
   let(:account) { create :account }
 
   within_account_subdomain do
-    scenario "The account is empty" do
-      sign_in_account account
-      expect(page).to have_text("It looks like you don't have any checklists yet")
-      expect(page).to have_text("Create Checklist")
-    end    
   end
 
   within_account_subdomain do

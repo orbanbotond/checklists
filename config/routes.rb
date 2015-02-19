@@ -54,6 +54,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  devise_for :users, class_name: 'Subscribem::User', module: :devise
+
+  constraints(Subscribem::Constraints::SubdomainRequired) do
+    root :to => "checklists#index", :as => :account_root
+  end
+
   mount Subscribem::Engine => "/"
 
   resources :checklists
