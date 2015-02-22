@@ -1,6 +1,6 @@
 .row
-  .col-lg-6
+  .col-lg-6.col-lg-offset-3
     .input-group
       span.input-group-addon
-        =f.check_box :value
-        =f.text_field :description, placeholder: 'Making Sushi'
+        = f.check_box :value, :'aria-label' =>'Checkbox for following text input'
+      = f.text_field :description, placeholder: 'Making Sushi', class: 'form-control'
