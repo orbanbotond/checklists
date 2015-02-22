@@ -1,4 +1,12 @@
-p Your checklists
-ul
-  - collection.each do |l|
-    li= link_to l.name, checklist_path(l)
+.page-header
+  h1
+    | Your checklists
+
+table.table.table-stripped.table-hover
+  thead
+    tr
+      th Checklist name
+  tbody
+    - collection.each do |l|
+      tr
+        th scope="row"= link_to l.name, checklist_path(l)
