@@ -4,3 +4,7 @@
       span.input-group-addon
         = f.check_box :value, :'aria-label' =>'Checkbox for following text input'
       = f.text_field :description, placeholder: 'Making Sushi', class: 'form-control'
+      = f.hidden_field :_destroy
+      span.input-group-addon.show-on-hover
+        = link_to '#', class: 'remove_fields' do
+          span.glyphicon.glyphicon-trash.icon-error

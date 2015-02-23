@@ -1,2 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.icon-success {
+  color: green;
+}
+
+.icon-warnign {
+  color: yellow;
+}
+
+.icon-error {
+  color: red;
+}
+
+.show-on-hover{
+  display: none;
+}
+
+.row:hover .show-on-hover {
+  display: table-cell;
+}
