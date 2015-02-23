@@ -7,7 +7,7 @@ html
     = javascript_include_tag "application"
     = csrf_meta_tags
   body
-    = render 'shared/header'
-    = render 'shared/flash'
     .container
+      = render 'shared/header'
+      = render 'shared/flash'
       = yield
