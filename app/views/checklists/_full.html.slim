@@ -10,3 +10,6 @@ table.table.table-stripped.table-hover
     - collection.each do |l|
       tr
         th scope="row"= link_to l.name, checklist_path(l)
+
+.text-center
+  = link_to 'Create a new Checklist', main_app.new_checklist_path, class: 'btn btn-success btn-lg'
