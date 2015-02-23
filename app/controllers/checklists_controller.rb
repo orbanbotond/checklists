@@ -12,7 +12,7 @@ class ChecklistsController < RestfullController
  private
 
   def checklist_params
-    params.require(:checklist).permit(:name, tasks_attributes: [:value, :description])
+    params.require(:checklist).permit(:name, tasks_attributes: [:id, :value, :description])
   end
 
 end
