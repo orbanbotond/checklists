@@ -3,7 +3,9 @@ class ChecklistsController < RestfullController
   def create
     @checklist = Checklist.new(checklist_params)
     @checklist.account_id = current_account.id
-    create! { account_root_path }
+    create! do |format|
+      format.html { render :index }
+    end
   end
 
   def new
