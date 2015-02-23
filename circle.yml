@@ -1,7 +1,6 @@
 deployment:
   staging:
     branch: master
-    heroku:
-      appname: tochecklists
     commands:
-      - heroku run rake db:migrate
+      - git push git@heroku.com:tochecklists.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app tochecklists
