@@ -2,7 +2,7 @@
   .container
     /! Brand and toggle get grouped for better mobile display
     .navbar-header
-      h4 The checklists
+      h4=link_to 'The checklists', account_root_path
     .collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
