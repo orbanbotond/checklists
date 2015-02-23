@@ -3,3 +3,5 @@ deployment:
     branch: master
     heroku:
       appname: tochecklists
+    commands:
+      - heroku run rake db:migrate
