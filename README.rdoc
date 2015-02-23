@@ -4,4 +4,3 @@
 
 Small application for tracking checklists.
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/orbanbotond/checklists/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
