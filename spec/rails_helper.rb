@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'shoulda/matchers'
+require 'wisper/rspec/matchers'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -66,6 +67,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include(Wisper::RSpec::BroadcastMatcher)
 
 end
 

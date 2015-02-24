@@ -39,7 +39,7 @@ gem 'inherited_resources', '~> 1.6'
 
 gem 'pry'
 gem 'pry-nav'
-
+gem 'wisper'
 
 group :development do
   gem 'quiet_assets'
@@ -51,6 +51,7 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.5"
   gem 'database_cleaner', '~> 1.4'
   gem 'capybara', '~> 2.4'
+  gem 'wisper-rspec'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

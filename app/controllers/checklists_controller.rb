@@ -1,9 +1,12 @@
 class ChecklistsController < RestfullController
 
+  include Wisper::Publisher
+
   def create
     @checklist = Checklist.new(checklist_params)
     @checklist.account_id = current_account.id
     create! do |format|
+      broadcast(:update_checklist, @checklist)
       format.html { render :index }
     end
   end
