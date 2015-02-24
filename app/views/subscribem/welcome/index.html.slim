@@ -13,7 +13,7 @@
     h1 Welcome To Checklists
     p.lead The easiest way to create and process your checklists
     p
-      = link_to "Sign up today", sign_up_path, role: 'button', class: 'btn btn-lg btn-success'
+      = link_to "Sign up today", sign_up_path, role: 'button', class: 'btn btn-lg btn-success', 'data-no-turbolink' => 'true'
   .row.marketing
     .col-lg-6
       h4 Repetitions
@@ -25,6 +25,11 @@
       p Share with others your proven checklists or use checklists which were polished by others.
       h4 Easy to use
       p The easiest to use and manage checklist on the globe.
+
+  p.text-center
+    |In case you already have an account or accounts and you want to manage them.
+    = link_to "sign in to manage your accounts", new_user_session_path, class: 'text-center center-block', 'data-no-turbolink' => 'true'
+
   footer.footer
     p © Logic Optimum 2014
 /! /container

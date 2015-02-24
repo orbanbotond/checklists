@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/orbanbotond/subscribem.git
-  revision: 677a555f030ffcef1f819b8b5c989792ff54a989
+  revision: 41bd0eb935e177ae61570a92736f677052d527a9
   specs:
-    subscribem (0.0.005)
+    subscribem (0.0.006)
       devise
       houser (= 1.0.2)
       jquery-rails
