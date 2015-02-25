@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :task do
-    description false
-checklist nil
+    sequence(:description) {|n| "#{ ActiveSupport::Inflector.ordinalize(n)} task" }
+    checklist
   end
 
 end

@@ -6,6 +6,7 @@ describe Checklist do
   end
   context 'assotiations' do
     it { is_expected.to have_many(:tasks) }
+    it { is_expected.to belong_to(:recipe) }
   end
   context 'validations' do
     it { is_expected.to validate_presence_of(:name) }

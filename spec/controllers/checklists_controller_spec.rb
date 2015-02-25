@@ -41,11 +41,10 @@ RSpec.describe ChecklistsController do
       end.to change{Checklist.count}.by(1)
       expect(Checklist.last.account).to eq(account)
     end
-    it "creates two tasks" do
+    it "creates the tasks" do
       expect do
         post :create, params, header_with_subdomain
-      end.to change{Task.count}.by(2)
-      expect(Task.last.checklist).to eq(Checklist.first)
+      end.to change{Task.count}
     end
     it "broadcasts the :create_checklist event" do
       expect do

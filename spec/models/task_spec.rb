@@ -7,6 +7,7 @@ describe Task do
   end
   context 'assotiations' do
     it { is_expected.to belong_to(:checklist) }
+    it { is_expected.to belong_to(:checkable) }
   end
   context "validations" do
     it { is_expected.to validate_presence_of(:description) }
