@@ -22,6 +22,10 @@ class ChecklistsController < RestfullController
     end
   end
 
+  def show
+    @checklist = Checklist.find params[:id]
+  end
+
   def new
     if @recipe.present?
       @checklist = @recipe.new_checklist
