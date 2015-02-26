@@ -18,7 +18,7 @@ class ChecklistsController < RestfullController
   def update
     @checklist = Checklist.find params[:id]
     if @checklist.update checklist_params
-      broadcast(:update_checklist, @checklist)
+      broadcast(:update_checklist, @checklist, current_account)
       @recipe = @checklist.recipe
       redirect_to recipe_checklists_path(@recipe)
     else
