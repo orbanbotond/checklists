@@ -1,5 +1,5 @@
 class ChecklistsController < RestfullController
-include DisplayCase::ExhibitsHelper
+  include DisplayCase::ExhibitsHelper
   include Wisper::Publisher
 
   before_action :load_recipe, only: [:new, :index]
@@ -22,10 +22,6 @@ include DisplayCase::ExhibitsHelper
     end
   end
 
-  def show
-    @checklist = Checklist.find params[:id]
-  end
-
   def new
     if @recipe.present?
       @checklist = @recipe.new_checklist
@@ -40,10 +36,6 @@ include DisplayCase::ExhibitsHelper
   end
 
 protected
-
-  def collection
-    end_of_association_chain
-  end
 
   def collection
     get_collection_ivar || set_collection_ivar(exhibit(end_of_association_chain))
