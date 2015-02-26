@@ -1,5 +1,5 @@
-class ChecklistListener
-  def update_checklist(checklist, account)
+class RecipeListener
+  def update_recipe(checklist, account)
     checklist.recipe ||= Recipe.create name: checklist.name, account_id: account.id
     checklist.save
     recipe = checklist.recipe

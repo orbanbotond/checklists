@@ -3,7 +3,7 @@ class CreateRecipesForChecklists < ActiveRecord::Migration
 
   def change
     Checklist.find_each do |cl|
-      broadcast(:update_checklist, cl)
+      broadcast(:update_recipe, cl)
       cl.reload
       recipe = cl.recipe
       recipe.account = cl.account

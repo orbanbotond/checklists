@@ -7,9 +7,7 @@ class ChecklistsController < RestfullController
   def create
     @checklist = Checklist.new(checklist_params)
     if @checklist.save
-      broadcast(:update_checklist, @checklist, current_account)
-      @recipe = @checklist.recipe
-      redirect_to recipe_checklists_path(@recipe)
+      post_process @checklist, current_account
     else
       render :new
     end
@@ -18,9 +16,7 @@ class ChecklistsController < RestfullController
   def update
     @checklist = Checklist.find params[:id]
     if @checklist.update checklist_params
-      broadcast(:update_checklist, @checklist, current_account)
-      @recipe = @checklist.recipe
-      redirect_to recipe_checklists_path(@recipe)
+      post_process @checklist, current_account
     else
       render :new
     end
@@ -43,11 +39,13 @@ class ChecklistsController < RestfullController
     Recipe.find(params[:recipe_id])
   end
 
-  def index
-    index!
-  end
-
 private
+
+  def post_process checklist, account
+    broadcast :update_recipe, checklist, account
+    @recipe = checklist.recipe
+    redirect_to recipe_checklists_path(@recipe)
+  end
 
   def load_recipe
     if params[:recipe_id].present?

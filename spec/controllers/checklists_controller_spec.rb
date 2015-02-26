@@ -85,7 +85,7 @@ RSpec.describe ChecklistsController do
     it "broadcasts the :create_checklist event" do
       expect do
         post :create, params, header_with_subdomain
-      end.to broadcast(:update_checklist)
+      end.to broadcast(:update_recipe)
     end
   end
 

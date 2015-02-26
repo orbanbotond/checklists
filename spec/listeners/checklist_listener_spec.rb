@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ChecklistListener do
+describe RecipeListener do
   let(:account) { create :account }
 
   context 'registration as wisper listener' do
@@ -8,14 +8,14 @@ describe ChecklistListener do
       include Wisper::Publisher
 
       def test_broadcast(cl, account)
-        broadcast :update_checklist, cl, account
+        broadcast :update_recipe, cl, account
       end
     end
 
     let(:checklist) { create :checklist }
 
     it 'is registered as a listener' do
-      expect_any_instance_of(ChecklistListener).to receive(:update_checklist).and_return(checklist)
+      expect_any_instance_of(RecipeListener).to receive(:update_recipe).and_return(checklist)
       A.new.test_broadcast checklist, account
     end
   end
@@ -28,12 +28,12 @@ describe ChecklistListener do
       let(:listener) { subject }
 
       it "populates the recipe field" do
-        listener.update_checklist checklist, account
+        listener.update_recipe checklist, account
         expect(checklist.reload.recipe).to be_present
       end
 
       it "populates the tasks" do
-        listener.update_checklist checklist, account
+        listener.update_recipe checklist, account
         expect(checklist.recipe.tasks.count).to eq(2)
       end
     end
@@ -48,7 +48,7 @@ describe ChecklistListener do
       let(:listener) { subject }
 
       it "adds the missing task to the recipe" do
-        listener.update_checklist checklist, account
+        listener.update_recipe checklist, account
         expect(checklist.recipe.tasks.count).to eq(2)
       end
     end
