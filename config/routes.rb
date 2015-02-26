@@ -57,10 +57,16 @@ Rails.application.routes.draw do
   devise_for :users, class_name: 'Subscribem::User', module: :devise
 
   constraints(Subscribem::Constraints::SubdomainRequired) do
-    root :to => "checklists#index", :as => :account_root
+    root :to => "recipes#index", :as => :account_root
   end
 
   mount Subscribem::Engine => "/"
 
-  resources :checklists
+#TODO how to spec these under a constraints
+  resources :recipes do
+    resources :checklists, only: [:index, :new, :create]
+  end
+
+  resources :checklists, except: :index
+
 end

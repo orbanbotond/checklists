@@ -1,14 +1,16 @@
 class Recipe < ActiveRecord::Base
+  scoped_to_account
+
   has_many  :checklists
   has_many  :tasks, as: :checkable
 
   validates :name,
           :presence => true
 
-  def create_checklist
-    checklist = Checklist.create name: name
+  def new_checklist
+    checklist = Checklist.new name: name, recipe_id: id
     tasks.each do |t|
-      checklist.tasks.create description: t.description
+      checklist.tasks.build description: t.description
     end
     checklist
   end

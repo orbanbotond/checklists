@@ -1,0 +1,17 @@
+.page-header
+  h1
+    | Your Recipes
+
+table.table.table-stripped.table-hover
+  thead
+    tr
+      th Recipe Name
+      th
+  tbody
+    - collection.each do |recipe|
+      tr
+        th scope="row"= link_to recipe.name, new_recipe_checklist_path(recipe)
+        th scope="row"= link_to "Applied #{recipe.checklists.count} times", recipe_checklists_path(recipe)
+
+.text-center
+  = link_to 'Create a new Checklist', main_app.new_checklist_path, class: 'btn btn-success btn-lg'

@@ -4,4 +4,6 @@ class Task < ActiveRecord::Base
 
   validates :description,
       presence: true
+
+  scope :pending, -> { where(value: false) }
 end

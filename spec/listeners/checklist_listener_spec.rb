@@ -23,13 +23,14 @@ describe ChecklistListener do
     context 'nonexistent recipe' do
       let(:task1) { create :task, checkable: checklist }
       let(:task2) { create :task, checkable: checklist }
-      let(:checklist) { create :checklist }
+      let(:checklist) { create :checklist, recipe: nil }
       let(:listener) { subject }
 
       it "populates the recipe field" do
         listener.update_checklist checklist
-        expect(checklist.recipe).to be_present
+        expect(checklist.reload.recipe).to be_present
       end
+
       it "populates the tasks" do
         task1
         task2
