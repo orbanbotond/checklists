@@ -11,9 +11,9 @@ table.table.table-stripped.table-hover
   tbody
     - collection.each do |checklist|
       tr
-        th scope="row"= link_to task_status(checklist), checklist_path(checklist)
-        th scope="row"= "#{distance_of_time_in_words_to_now checklist.created_at} ago"
-        th scope='row'= "#{distance_of_time_in_words_to_now checklist.updated_at} ago"
+        th scope="row"= link_to checklist.task_status, checklist_path(checklist)
+        th scope="row"= "#{checklist.created_at} ago"
+        th scope='row'= "#{checklist.updated_at} ago"
 
 .text-center
   = link_to 'Check again', main_app.new_recipe_checklist_path(@recipe), class: 'btn btn-success btn-lg'

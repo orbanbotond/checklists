@@ -95,6 +95,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    display_case (0.1.2)
     erubis (2.7.0)
     execjs (2.3.0)
     factory_girl (4.5.0)
@@ -302,6 +303,7 @@ DEPENDENCIES
   capybara (~> 2.4)
   coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.4)
+  display_case
   factory_girl_rails (~> 4.5)
   inherited_resources (~> 1.6)
   jbuilder (~> 2.0)

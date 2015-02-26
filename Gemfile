@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'subscribem', :path => "../multitenancy/subscribem"
 gem 'subscribem', :git => 'https://github.com/orbanbotond/subscribem.git'
+gem 'display_case'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

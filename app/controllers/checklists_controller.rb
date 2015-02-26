@@ -1,5 +1,5 @@
 class ChecklistsController < RestfullController
-
+include DisplayCase::ExhibitsHelper
   include Wisper::Publisher
 
   before_action :load_recipe, only: [:new, :index]
@@ -37,6 +37,16 @@ class ChecklistsController < RestfullController
 
   def begin_of_association_chain
     Recipe.find(params[:recipe_id])
+  end
+
+protected
+
+  def collection
+    end_of_association_chain
+  end
+
+  def collection
+    get_collection_ivar || set_collection_ivar(exhibit(end_of_association_chain))
   end
 
 private
