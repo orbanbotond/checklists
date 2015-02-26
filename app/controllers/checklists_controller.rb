@@ -6,9 +6,8 @@ class ChecklistsController < RestfullController
 
   def create
     @checklist = Checklist.new(checklist_params)
-    @checklist.account_id = current_account.id
     if @checklist.save
-      broadcast(:update_checklist, @checklist)
+      broadcast(:update_checklist, @checklist, current_account)
       @recipe = @checklist.recipe
       redirect_to recipe_checklists_path(@recipe)
     else

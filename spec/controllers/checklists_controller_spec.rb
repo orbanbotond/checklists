@@ -75,7 +75,7 @@ RSpec.describe ChecklistsController do
       expect do
         post :create, params, header_with_subdomain
       end.to change{Checklist.count}.by(1)
-      expect(Checklist.last.account).to eq(account)
+      expect(Recipe.last.account).to eq(account)
     end
     it "creates the tasks" do
       expect do

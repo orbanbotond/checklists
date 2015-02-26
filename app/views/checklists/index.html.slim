@@ -1,19 +1,19 @@
 .page-header
   h1
-    | Your Checklists
+    = "Checklists for #{@recipe.name}"
 
 table.table.table-stripped.table-hover
   thead
     tr
-      th Checklist name
-      th Tasks
-      th Timestamp
+      th Status Of Tasks
+      th Created At
+      th Modified At
   tbody
     - collection.each do |checklist|
       tr
-        th scope="row"= link_to checklist.name, checklist_path(checklist)
-        th scope="row"= "#{checklist.tasks.pending.count} of #{checklist.tasks.count} pending"
-        th scope="row"= "Created: #{distance_of_time_in_words_to_now checklist.created_at} ago / Modified: #{distance_of_time_in_words_to_now checklist.updated_at} ago"
+        th scope="row"= link_to task_status(checklist), checklist_path(checklist)
+        th scope="row"= "#{distance_of_time_in_words_to_now checklist.created_at} ago"
+        th scope='row'= "#{distance_of_time_in_words_to_now checklist.updated_at} ago"
 
 .text-center
-  = link_to 'Create a new Checklist', main_app.new_recipe_checklist_path(@recipe), class: 'btn btn-success btn-lg'
+  = link_to 'Check again', main_app.new_recipe_checklist_path(@recipe), class: 'btn btn-success btn-lg'
