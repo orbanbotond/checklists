@@ -1,4 +1,4 @@
-= simple_form_for object, html: {class: 'form-horizontal multiple_tags', role: 'form', 'data-no-turbolink': 'true'}, defaults: { label_html: { class: 'col-lg-3' }, input_html: { class: 'form-control'} }  do |f|
+= simple_form_for object, html: {class: 'form-horizontal multiple_tags', role: 'form', 'data-no-turbolink': 'true'}, defaults: { label_html: { class: 'col-lg-3 col-xs-3' }, input_html: { class: 'form-control'} }  do |f|
   = f.hidden_field :recipe_id
   = f.input :name, placeholder: 'Preparing for a party'
   = f.fields_for :tasks do |tf|
