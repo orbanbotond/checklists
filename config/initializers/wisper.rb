@@ -9,6 +9,6 @@ end
 Wisper.setup
 
 Rails.application.config.to_prepare do
-  Wisper.clear if Rails.env.development?
+  Wisper.clear unless Rails.env.production?
   Wisper.subscribe(RecipeListener.new)
 end

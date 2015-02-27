@@ -49,7 +49,7 @@ private
 
   def post_process checklist, account
     broadcast :update_recipe, checklist, account
-    @recipe = checklist.recipe
+    @recipe = checklist.reload.recipe
     redirect_to recipe_checklists_path(@recipe)
   end
 

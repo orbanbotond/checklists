@@ -37,6 +37,31 @@ describe RecipeListener do
         expect(checklist.recipe.tasks.count).to eq(2)
       end
     end
+    context 'name is different that the recipes name' do
+      let!(:task1) { create :task, checkable: checklist }
+      let!(:task2) { create :task, checkable: checklist }
+      let(:recipe) do
+        r = create :recipe, name: 'Other than the checklists one'
+        r.tasks.create description: 'task1.description'
+        r
+      end
+      let(:checklist) { create :checklist, recipe: recipe }
+      let(:listener) { subject }
+
+      it "creates a new recipe" do
+        listener.update_recipe checklist, account
+        expect(checklist.recipe).to_not eq(recipe)
+      end
+      it "populates the name" do
+        listener.update_recipe checklist, account
+        expect(checklist.recipe.name).to eq(checklist.name)
+      end
+      it "populates the tasks" do
+        listener.update_recipe checklist, account
+        expect(checklist.recipe.tasks.count).to eq(2)
+        expect(checklist.recipe.tasks.map(&:description)).to eq([task1.description, task2.description])
+      end
+    end
     context 'adds the task to the existent recipe' do
       let!(:task1) { create :task, checkable: checklist }
       let!(:task2) { create :task, checkable: checklist }
