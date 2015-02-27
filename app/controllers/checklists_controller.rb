@@ -6,6 +6,7 @@ class ChecklistsController < RestfullController
 
   def create
     @checklist = Checklist.new(checklist_params)
+    authorize @checklist
     if @checklist.save
       post_process @checklist, current_account
     else
@@ -15,6 +16,7 @@ class ChecklistsController < RestfullController
 
   def update
     @checklist = Checklist.find params[:id]
+    authorize @checklist
     if @checklist.update checklist_params
       post_process @checklist, current_account
     else
@@ -34,6 +36,7 @@ class ChecklistsController < RestfullController
       @checklist = Checklist.new
       @checklist.tasks << Task.new
     end
+    authorize @checklist
   end
 
   def begin_of_association_chain

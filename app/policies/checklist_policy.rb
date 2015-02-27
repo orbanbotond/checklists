@@ -3,6 +3,14 @@ class ChecklistPolicy < ApplicationPolicy
 
 #TODO make for all the other actions too
 
+  def create?
+    true
+  end
+
+  def update?
+    true
+  end
+
   def show?
     record.recipe.account.users.include? user
   end
