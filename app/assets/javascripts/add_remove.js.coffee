@@ -8,5 +8,5 @@ $ ->
   $('form').on 'click', '.add_fields', (event) ->
     time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
-    $('.row:nth-last-child(3)', $(this).closest('form')).after($(this).data('fields').replace(regexp, time))
+    $('.row.task:last', $(this).closest('form')).after($(this).data('fields').replace(regexp, time))
     event.preventDefault()
