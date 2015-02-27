@@ -24,6 +24,7 @@ class ChecklistsController < RestfullController
 
   def show
     @checklist = Checklist.find params[:id]
+    authorize @checklist
   end
 
   def new

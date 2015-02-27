@@ -42,6 +42,9 @@ gem 'pry'
 gem 'pry-nav'
 gem 'wisper'
 
+gem 'pundit'
+gem 'rolify'
+
 group :development do
   gem 'quiet_assets'
   gem "spring-commands-rspec"
