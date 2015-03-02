@@ -2,8 +2,12 @@ require 'rails_helper'
 
 RSpec.describe ChecklistsController do
   let(:account) { create :account }
+  let(:nonexistent_recipe_id) { -1 }
+  let(:other_account) { create :account }
   let(:user) { account.owner }
   let(:recipe) { create :recipe, account: account}
+  let(:others_recipe) { create :recipe, account: other_account}
+  let!(:other_checklist) { create :checklist, recipe: others_recipe}
   let!(:task_1) { create :task, checkable: recipe, value: false }
   let!(:task_2) { create :task, checkable: recipe, value: false }
   let!(:checklist) { create :checklist, recipe: recipe}
@@ -51,17 +55,39 @@ RSpec.describe ChecklistsController do
   end
 
   describe "GET :index" do
-    it 'renders the template' do
-      get :index, {recipe_id: recipe.id}
-      expect(response).to render_template(:index)
+    context 'the viewer views its own checklists' do
+      it 'renders the template' do
+        get :index, {recipe_id: recipe.id}
+        expect(response).to render_template(:index)
+      end
+      it 'it assigns the collection' do
+        get :index, {recipe_id: recipe.id}
+        expect(assigns(:checklists)).to be_present
+      end
+      it 'it assigns the recipe' do
+        get :index, {recipe_id: recipe.id}
+        expect(assigns(:recipe)).to be_present
+      end
     end
-    it 'it assigns the collection' do
-      get :index, {recipe_id: recipe.id}
-      expect(assigns(:checklists)).to be_present
+    context 'the viewer views others checklists' do
+      it 'renders the template' do
+        get :index, { recipe_id: others_recipe.id }
+        expect(response).to redirect_to(recipes_path)
+      end
+      it 'renders the flash' do
+        get :index, { recipe_id: others_recipe.id }
+        expect(flash['alert']).to eq('You were not allowed to view that checklist')
+      end
     end
-    it 'it assigns the recipe' do
-      get :index, {recipe_id: recipe.id}
-      expect(assigns(:recipe)).to be_present
+    context 'the viewer views nonexistent recipes' do
+      it 'renders the template' do
+        get :index, { recipe_id: nonexistent_recipe_id }
+        expect(response).to redirect_to(recipes_path)
+      end
+      it 'renders the flash' do
+        get :index, { recipe_id: nonexistent_recipe_id }
+        expect(flash['alert']).to eq('There was no recipe with that id.')
+      end
     end
   end
 

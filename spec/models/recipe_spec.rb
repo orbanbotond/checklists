@@ -5,7 +5,7 @@ describe Recipe do
     it { is_expected.to respond_to(:name) }
   end
   context 'assotiations' do
-    it { is_expected.to have_many(:checklists) }
+    it { is_expected.to have_many(:checklists).dependent(:destroy) }
     it { is_expected.to have_many(:tasks) }
     it { is_expected.to belong_to(:account) }
   end

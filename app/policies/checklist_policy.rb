@@ -1,8 +1,6 @@
 class ChecklistPolicy < ApplicationPolicy
   attr_reader :user, :record
 
-#TODO make for all the other actions too
-
   def create?
     true
   end

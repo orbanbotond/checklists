@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
   scoped_to_account
 
-  has_many  :checklists
+  has_many  :checklists, dependent: :destroy
   has_many  :tasks, as: :checkable
 
   validates :name,

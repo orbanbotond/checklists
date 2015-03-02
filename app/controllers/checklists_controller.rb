@@ -3,6 +3,7 @@ class ChecklistsController < RestfullController
   include Wisper::Publisher
 
   before_action :load_recipe, only: [:new, :index]
+  rescue_from ActiveRecord::RecordNotFound, with: :no_recipe_found
 
   def create
     @checklist = Checklist.new(checklist_params)
@@ -24,11 +25,6 @@ class ChecklistsController < RestfullController
     end
   end
 
-  def show
-    @checklist = Checklist.find params[:id]
-    authorize @checklist
-  end
-
   def new
     if @recipe.present?
       @checklist = @recipe.new_checklist
@@ -43,10 +39,10 @@ class ChecklistsController < RestfullController
     Recipe.find(params[:recipe_id])
   end
 
-protected
-
   def collection
-    get_collection_ivar || set_collection_ivar(exhibit(end_of_association_chain))
+    collection_without_authority
+    authorize @recipe
+    exhibit(get_collection_ivar)
   end
 
 private
@@ -65,6 +61,10 @@ private
 
   def checklist_params
     params.require(:checklist).permit(:name, :recipe_id, tasks_attributes: [:id, :value, :description, :_destroy])
+  end
+
+  def no_recipe_found
+    redirect_to recipes_path, alert: 'There was no recipe with that id.'
   end
 
 end
