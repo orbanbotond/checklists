@@ -14,4 +14,3 @@ class ChecklistPolicy < ApplicationPolicy
   end
 
 end
-
