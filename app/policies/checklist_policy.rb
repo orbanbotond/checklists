@@ -14,5 +14,3 @@ class ChecklistPolicy < ApplicationPolicy
   end
 
 end
-
-#:new, :create, :update, :show
