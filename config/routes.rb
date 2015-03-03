@@ -67,6 +67,6 @@ Rails.application.routes.draw do
     resources :checklists, only: [:index, :new, :create]
   end
 
-  resources :checklists, except: :index
+  resources :checklists, except: [:index, :destroy]
 
 end

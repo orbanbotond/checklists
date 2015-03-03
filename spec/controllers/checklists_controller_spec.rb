@@ -86,7 +86,7 @@ RSpec.describe ChecklistsController do
       end
       it 'renders the flash' do
         get :index, { recipe_id: nonexistent_recipe_id }
-        expect(flash['alert']).to eq('There was no recipe with that id.')
+        expect(flash['alert']).to eq('There was no resource with that id.')
       end
     end
   end

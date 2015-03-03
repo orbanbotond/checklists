@@ -3,7 +3,12 @@ class ChecklistsController < RestfullController
   include Wisper::Publisher
 
   before_action :load_recipe, only: [:new, :index]
-  rescue_from ActiveRecord::RecordNotFound, with: :no_recipe_found
+  rescue_from ActiveRecord::RecordNotFound, with: :no_resource_found
+
+  def show
+    @checklist = Checklist.find params[:id]
+    authorize @checklist
+  end
 
   def create
     @checklist = Checklist.new(checklist_params)
@@ -63,8 +68,8 @@ private
     params.require(:checklist).permit(:name, :recipe_id, tasks_attributes: [:id, :value, :description, :_destroy])
   end
 
-  def no_recipe_found
-    redirect_to recipes_path, alert: 'There was no recipe with that id.'
+  def no_resource_found
+    redirect_to recipes_path, alert: 'There was no resource with that id.'
   end
 
 end
