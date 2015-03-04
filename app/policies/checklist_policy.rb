@@ -15,3 +15,15 @@ class ChecklistPolicy < ApplicationPolicy
 
 end
 
+# TODO add this as ability to share the checklist with others.
+# u = User.first
+# lcl = Checklist.last
+
+# u.add_role :observer, lcl
+
+# lcl.roles
+# lcl.applied_roles
+
+# Checklist.with_role(:observer)
+
+

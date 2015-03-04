@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  # devise_for :users, module: :devise
   devise_for :users, class_name: 'Subscribem::User', module: :devise
 
   constraints(Subscribem::Constraints::SubdomainRequired) do

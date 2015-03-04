@@ -23,8 +23,10 @@ gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-# gem 'subscribem', :path => "../multitenancy/subscribem"
-gem 'subscribem', :git => 'https://github.com/orbanbotond/subscribem.git'
+gem 'subscribem', :path => "../multitenancy/subscribem"
+# gem 'blorgh', :path => "/Users/boti/Rails/blorgh"
+gem 'awesome_print'
+# gem 'subscribem', :git => 'https://github.com/orbanbotond/subscribem.git'
 gem 'display_case'
 
 # Use ActiveModel has_secure_password
@@ -48,6 +50,9 @@ gem 'rolify'
 group :development do
   gem 'quiet_assets'
   gem "spring-commands-rspec"
+  gem 'rails_layout'
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_20]
 end
 
 group :development, :test do
