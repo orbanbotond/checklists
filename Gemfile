@@ -46,6 +46,7 @@ gem 'wisper'
 
 gem 'pundit'
 gem 'rolify'
+gem 'devise_invitable'
 
 group :development do
   gem 'quiet_assets'
