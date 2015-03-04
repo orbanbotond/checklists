@@ -40,4 +40,11 @@ describe Recipe do
       expect(checklist.tasks.map(&:description)).to eq(recipe.tasks.map(&:description))
     end
   end
+
+  context "index" do
+    let(:recipe) { create :recipe }
+    context 'update' do
+      specify { expect { recipe.save! }.to update_index(SearchIndex::Recipe) }
+    end
+  end
 end

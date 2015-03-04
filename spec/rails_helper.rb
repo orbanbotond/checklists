@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'shoulda/matchers'
 require 'wisper/rspec/matchers'
+require 'chewy/rspec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

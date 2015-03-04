@@ -7,6 +7,8 @@ class Recipe < ActiveRecord::Base
   validates :name,
           :presence => true
 
+  update_index 'search#recipe', :self
+
   def new_checklist
     checklist = Checklist.new name: name, recipe_id: id
     tasks.each do |t|

@@ -44,6 +44,7 @@ gem 'wisper'
 
 gem 'pundit'
 gem 'rolify'
+gem 'chewy'
 
 group :development do
   gem 'quiet_assets'
