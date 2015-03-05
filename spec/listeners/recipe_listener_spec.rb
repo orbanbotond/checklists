@@ -59,7 +59,7 @@ describe RecipeListener do
       it "populates the tasks" do
         listener.update_recipe checklist, account
         expect(checklist.recipe.tasks.count).to eq(2)
-        expect(checklist.recipe.tasks.map(&:description)).to eq([task1.description, task2.description])
+        expect(checklist.recipe.tasks.map(&:description).sort).to eq([task1.description, task2.description].sort)
       end
     end
     context 'adds the task to the existent recipe' do

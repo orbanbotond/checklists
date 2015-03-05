@@ -48,8 +48,8 @@ RSpec.describe ChecklistsController do
       end
       it 'has the same tasks as the recipe' do
         get :new, {recipe_id: recipe.id}
-        expect(assigns(:checklist).tasks.size).to eq(recipe.tasks.size)
-        expect(assigns(:checklist).tasks.map(&:description)).to eq(recipe.tasks.map(&:description))
+        expect(assigns(:checklist).tasks.size).to eq(recipe.reload.tasks.size)
+        expect(assigns(:checklist).tasks.map(&:description).sort).to eq(recipe.tasks.map(&:description).sort)
       end
     end
   end
