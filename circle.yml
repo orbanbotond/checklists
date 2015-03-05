@@ -1,3 +1,6 @@
+machine:
+  services:
+    - elasticsearch
 deployment:
   staging:
     branch: master
