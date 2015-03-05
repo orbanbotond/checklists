@@ -6,6 +6,5 @@ class Task < ActiveRecord::Base
 
   scope :pending, -> { where(value: false) }
 
-  # update_index('search#recipe') { checkable if checkable_type == 'Recipe' }
-  # update_index('search#recipe') { nil }
+  update_index('search#recipe') { checkable if checkable_type == 'Recipe' }
 end
