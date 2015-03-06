@@ -1,4 +1,9 @@
-- if collection.present?
+- if @recipes.present?
   = render 'full', locals: {collection: collection}
+- elsif params[:search_term].present?
+  .page-header
+    h2 It looks like there are no recipes with the search result
+  .text-center
+    =link_to 'Create Checklist', main_app.new_checklist_path, class: 'btn btn-success'
 - else
   = render 'empty'

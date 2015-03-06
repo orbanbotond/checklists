@@ -25,9 +25,9 @@ feature 'Listing checklists' do
       expect(page).to have_text("Complete")
     end
 
-    scenario "Does not show the other recipes checklists" do
+    scenario "Do not not show the other recipes checklists" do
       sign_in_account account
-      visit recipe_checklists_path(recipe)
+      click_on 'Applied 2 times'
       expect(page).not_to have_text(other_checklist.name)
     end
   end

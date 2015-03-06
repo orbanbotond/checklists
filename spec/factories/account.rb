@@ -6,5 +6,8 @@ FactoryGirl.define do
     after(:create) do |account|
       account.users << account.owner
     end
+    after(:stub) do |account|
+      account.users << account.owner
+    end
   end
 end

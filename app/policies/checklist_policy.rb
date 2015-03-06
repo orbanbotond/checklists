@@ -6,7 +6,7 @@ class ChecklistPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.recipe.account.users.include? user
   end
 
   def show?

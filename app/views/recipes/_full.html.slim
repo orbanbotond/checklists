@@ -8,10 +8,14 @@ table.table.table-stripped.table-hover
       th Recipe Name
       th Usage
   tbody
-    - collection.each do |recipe|
+    - @recipes.each do |recipe|
       tr
         th scope="row"= link_to recipe.name, new_recipe_checklist_path(recipe)
         th scope="row"= link_to "Applied #{recipe.checklists.count} times", recipe_checklists_path(recipe)
 
 .text-center
   = link_to 'Create a new Checklist', main_app.new_checklist_path, class: 'btn btn-success btn-lg'
+
+a href="https://ifttt.com/view_embed_recipe/133380-log-your-work-hours-on-google-calendar" target = "_blank" class="embed_recipe embed_recipe-l_38" id= "embed_recipe-133380"><img src= 'https://ifttt.com/recipe_embed_img/133380' alt="IFTTT Recipe: Log your work hours on Google Calendar connects ios-location to google-calendar" width="370px" style="max-width:100%"
+
+script async='true' type="text/javascript" src= "//ifttt.com/assets/embed_recipe.js"

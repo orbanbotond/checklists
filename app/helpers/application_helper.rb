@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def has_recipes?
+    Recipe.scoped_to(current_account).present?
+  end
+
   def alert_class(k)
     alerts = {:success => 'alert-success', :notice => 'alert-success', :alert => 'alert-warning', :error => 'alert-danger'}
     alerts[k.to_sym]

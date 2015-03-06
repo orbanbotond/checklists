@@ -64,10 +64,10 @@ Rails.application.routes.draw do
   mount Subscribem::Engine => "/"
 
 #TODO how to spec these under a constraints
-  resources :recipes do
+  resources :recipes, only: [:index] do
     resources :checklists, only: [:index, :new, :create]
   end
 
-  resources :checklists, except: :index
+  resources :checklists, except: [:index, :destroy]
 
 end

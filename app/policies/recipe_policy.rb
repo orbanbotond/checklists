@@ -10,4 +10,3 @@ class RecipePolicy < ApplicationPolicy
   end
 
 end
-

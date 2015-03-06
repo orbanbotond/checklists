@@ -48,8 +48,8 @@ RSpec.describe ChecklistsController do
       end
       it 'has the same tasks as the recipe' do
         get :new, {recipe_id: recipe.id}
-        expect(assigns(:checklist).tasks.size).to eq(recipe.tasks.size)
-        expect(assigns(:checklist).tasks.map(&:description)).to eq(recipe.tasks.map(&:description))
+        expect(assigns(:checklist).tasks.size).to eq(recipe.reload.tasks.size)
+        expect(assigns(:checklist).tasks.map(&:description).sort).to eq(recipe.tasks.map(&:description).sort)
       end
     end
   end
@@ -86,7 +86,7 @@ RSpec.describe ChecklistsController do
       end
       it 'renders the flash' do
         get :index, { recipe_id: nonexistent_recipe_id }
-        expect(flash['alert']).to eq('There was no recipe with that id.')
+        expect(flash['alert']).to eq('There was no resource with that id.')
       end
     end
   end

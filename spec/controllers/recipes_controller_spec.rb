@@ -14,7 +14,6 @@ RSpec.describe RecipesController do
     it { is_expected.to be_a(RestfullController)}
   end
 
-
   describe "GET index" do
     let(:recipe) { create :recipe, account: account}
     let(:checklist1) { create :checklist, recipe: recipe}
