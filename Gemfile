@@ -45,6 +45,7 @@ gem 'wisper'
 gem 'pundit'
 gem 'rolify'
 gem 'chewy'
+gem 'coveralls', require: false
 
 group :development do
   gem 'quiet_assets'
@@ -70,6 +71,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', require: false
+  gem 'simplecov', :require => false
 end
 
 group :production do
