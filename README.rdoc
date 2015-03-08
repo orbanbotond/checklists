@@ -1,5 +1,6 @@
 == README
 
-{<img src="https://circleci.com/gh/orbanbotond/checklists.svg?style=svg" alt="Circle CI" />}[https://circleci.com/gh/orbanbotond/checklists] {<img src="https://gemnasium.com/orbanbotond/checklists.svg" alt="Dependency Status" />}[https://gemnasium.com/orbanbotond/checklists] {<img src="https://codeclimate.com/github/orbanbotond/checklists/badges/gpa.svg" />}[https://codeclimate.com/github/orbanbotond/checklists]
+{<img src="https://circleci.com/gh/orbanbotond/checklists.svg?style=svg" alt="Circle CI" />}[https://circleci.com/gh/orbanbotond/checklists] {<img src="https://gemnasium.com/orbanbotond/checklists.svg" alt="Dependency Status" />}[https://gemnasium.com/orbanbotond/checklists] {<img src="https://codeclimate.com/github/orbanbotond/checklists/badges/gpa.svg" />}[https://codeclimate.com/github/orbanbotond/checklists] 
+{<img src="https://coveralls.io/repos/orbanbotond/subscribem/badge.svg" alt="Coverage Status" />}[https://coveralls.io/r/orbanbotond/subscribem]
 
 Small application for tracking checklists.
