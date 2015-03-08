@@ -13,10 +13,10 @@ if ENV["RAILS_ENV"] == 'test'
       dir = File.join("..", "..", "..", ENV['CIRCLE_ARTIFACTS'], "coverage")
       SimpleCov.coverage_dir(dir)
     end
-    SimpleCov.start 'rails'
-    # SimpleCov.start 'rails' do
-    #   add_filter 'app/secrets'
-    # end
+    # SimpleCov.start 'rails'
+    SimpleCov.start 'rails' do
+      add_filter 'app/secrets'
+    end
   end
 end
 
