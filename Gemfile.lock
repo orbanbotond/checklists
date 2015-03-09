@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/orbanbotond/subscribem.git
-  revision: f8c6d7dcb02fc76a2dec8b6b8e097fa9e75997bc
+  revision: a1a9660584e972496fd89fc59548078665e34af0
   specs:
-    subscribem (0.0.010)
+    subscribem (0.0.011)
       bootstrap-sass (~> 3.3.3)
       devise
       houser (= 1.0.2)

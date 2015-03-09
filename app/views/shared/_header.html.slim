@@ -5,7 +5,7 @@
       = link_to 'The checklists', account_root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        - if has_recipes?
+        - if  user_signed_in? && current_account.present? && has_recipes?
           = form_tag recipes_path, class: 'navbar-form navbar-left', role: "search", method: :get
             .form-group
               input.form-control placeholder="Search" type="text" name='search_term'
