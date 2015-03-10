@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
   constraints(Subscribem::Constraints::SubdomainRequired) do
     root :to => "recipes#index", :as => :account_root
+    resources :subscribem_accounts, only: [:edit, :update]
+    resources :invitation, only: [:create]
   end
 
   mount Subscribem::Engine => "/"

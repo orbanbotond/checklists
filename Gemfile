@@ -24,9 +24,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'subscribem', :path => "../multitenancy/subscribem"
-# gem 'blorgh', :path => "/Users/boti/Rails/blorgh"
-gem 'awesome_print'
 # gem 'subscribem', :git => 'https://github.com/orbanbotond/subscribem.git'
+gem 'awesome_print'
 gem 'display_case'
 
 # Use ActiveModel has_secure_password
@@ -45,7 +44,6 @@ gem 'pry-nav'
 gem 'wisper'
 
 gem 'pundit'
-gem 'rolify'
 gem 'devise_invitable'
 gem 'chewy'
 

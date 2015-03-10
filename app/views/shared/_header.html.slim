@@ -5,7 +5,7 @@
       = link_to 'The checklists', account_root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        - if has_recipes? && user_signed_in?
+        - if  user_signed_in? && current_account.present? && has_recipes?
           = form_tag recipes_path, class: 'navbar-form navbar-left', role: "search", method: :get
             .form-group
               input.form-control placeholder="Search" type="text" name='search_term'
@@ -17,8 +17,11 @@
               | Settings
               span.caret
             ul.dropdown-menu role="menu" 
+              - if current_user.has_role? :admin, current_account
+                li
+                  = link_to 'Edit Account', edit_subscribem_account_path(current_account)
               li
-              | Signed in as #{current_user.email}
+              | Profile #{current_user.email}
               li.divider
               li
-                =link_to 'Log out', destroy_user_session_path, method: :delete
+                = link_to 'Log out', destroy_user_session_path, method: :delete
