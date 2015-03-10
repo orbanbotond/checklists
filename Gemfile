@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.2'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'subscribem', :path => "../multitenancy/subscribem"
 gem 'subscribem', :git => 'https://github.com/orbanbotond/subscribem.git'
+gem 'awesome_print'
 gem 'display_case'
 
 # Use ActiveModel has_secure_password
@@ -43,13 +44,16 @@ gem 'pry-nav'
 gem 'wisper'
 
 gem 'pundit'
-gem 'rolify'
+gem 'devise_invitable'
 gem 'chewy'
 gem 'coveralls', require: false
 
 group :development do
   gem 'quiet_assets'
   gem "spring-commands-rspec"
+  gem 'rails_layout'
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_20]
 end
 
 group :development, :test do

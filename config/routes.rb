@@ -54,10 +54,13 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  # devise_for :users, module: :devise
   devise_for :users, class_name: 'Subscribem::User', module: :devise
 
   constraints(Subscribem::Constraints::SubdomainRequired) do
     root :to => "recipes#index", :as => :account_root
+    resources :subscribem_accounts, only: [:edit, :update]
+    resources :invitation, only: [:create]
   end
 
   mount Subscribem::Engine => "/"

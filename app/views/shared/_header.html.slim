@@ -17,8 +17,11 @@
               | Settings
               span.caret
             ul.dropdown-menu role="menu" 
+              - if current_user.has_role? :admin, current_account
+                li
+                  = link_to 'Edit Account', edit_subscribem_account_path(current_account)
               li
-              | Signed in as #{current_user.email}
+              | Profile #{current_user.email}
               li.divider
               li
-                =link_to 'Log out', destroy_user_session_path, method: :delete
+                = link_to 'Log out', destroy_user_session_path, method: :delete
