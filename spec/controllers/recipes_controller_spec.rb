@@ -15,13 +15,34 @@ RSpec.describe RecipesController do
   end
 
   describe "GET index" do
-    let(:recipe) { create :recipe, account: account}
+    let!(:recipe) { create :recipe, account: account}
+    let!(:recipe_2) { create :recipe, account: account, name: 'jeiijj'}
     let(:checklist1) { create :checklist, recipe: recipe}
     let(:checklist2) { create :checklist, recipe: recipe}
 
-    it "renders the index" do
-      get :index, {} , header_with_subdomain
-      expect(response).to render_template(:index)
+    context 'without search' do
+      it "renders the index" do
+        get :index, {} , header_with_subdomain
+        expect(response).to render_template(:index)
+      end
+
+      it "has 2 recipes" do
+        get :index, {} , header_with_subdomain
+        expect(assigns[:recipes].count).to eq(2)
+      end
+    end
+
+    context 'with search' do
+      let(:params) { {search_term: recipe_2.name} }
+      it "renders the index" do
+        get :index, params , header_with_subdomain
+        expect(response).to render_template(:index)
+      end
+
+      it "has 1 recipes" do
+        get :index, params , header_with_subdomain
+        expect(assigns[:recipes].count).to eq(1)
+      end
     end
 
     #TODO later maybe add audit broadcast
