@@ -10,7 +10,10 @@ table.table.table-bordered.table-hover.table-striped
       tr
         th scope="row"= user.email
         td= user.status(current_account)
-        td 
+        td
+          - unless user.has_role? :admin, current_account
+            =link_to user_path(user), method: :delete
+              span aria-hidden="true" class="glyphicon glyphicon-trash icon-error"
 
 = simple_form_for @invitation, url: invitation_index_path, html: {class: 'form-horizontal multiple_tags', role: 'form', 'data-no-turbolink': 'true'}, defaults: { label_html: { class: 'col-lg-3 col-xs-12 col-sm-3' }, input_html: { class: 'form-control'} }  do |f|
   = f.input :email

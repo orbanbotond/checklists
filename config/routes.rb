@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     root :to => "recipes#index", :as => :account_root
     resources :subscribem_accounts, only: [:edit, :update]
     resources :invitation, only: [:create]
+    resources :users, only: [:destroy]
   end
 
   mount Subscribem::Engine => "/"
