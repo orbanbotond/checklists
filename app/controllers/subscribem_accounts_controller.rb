@@ -1,5 +1,6 @@
 class SubscribemAccountsController < ApplicationController
   include DisplayCase::ExhibitsHelper
+  include Pundit
 
   before_action :authenticate_user!
 
@@ -9,7 +10,10 @@ class SubscribemAccountsController < ApplicationController
     @invitation = InvitationForm.new
   end
 
-  def update
-    
+protected
+
+  def pundit_user
+    current_account
   end
+
 end

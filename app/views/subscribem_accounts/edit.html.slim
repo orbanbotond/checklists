@@ -11,7 +11,7 @@ table.table.table-bordered.table-hover.table-striped
         th scope="row"= user.email
         td= user.status(current_account)
         td
-          - unless user.has_role? :admin, current_account
+          - if policy(user).destroy?
             =link_to user_path(user), method: :delete
               span aria-hidden="true" class="glyphicon glyphicon-trash icon-error"
 
