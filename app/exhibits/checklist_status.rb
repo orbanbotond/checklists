@@ -1,7 +1,7 @@
 class ChecklistStatus < DisplayCase::Exhibit
 
   def self.applicable_to?(object, context)
-    object.is_a?(Checklist)
+    object.class.name == "Checklist"
   end
 
   def task_status
