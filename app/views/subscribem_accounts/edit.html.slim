@@ -12,10 +12,10 @@ table.table.table-bordered.table-hover.table-striped
         td= user.status(current_account)
         td
           - if policy(user).destroy?
-            =link_to user_path(user), method: :delete
+            = link_to user_path(user), method: :delete
               span aria-hidden="true" class="glyphicon glyphicon-trash icon-error"
 
-= simple_form_for @invitation, url: invitation_index_path, html: {class: 'form-horizontal multiple_tags', role: 'form', 'data-no-turbolink': 'true'}, defaults: { label_html: { class: 'col-lg-3 col-xs-12 col-sm-3' }, input_html: { class: 'form-control'} }  do |f|
+= simple_form_for @invitation, url: invitation_index_path, html: {class: 'form-horizontal multiple_tags', role: 'form', 'data-no-turbolink': 'true'}, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f|
   = f.input :email
   .row
     .col-lg-6.col-lg-offset-3.col-xs-4.col-sm-offset-3.col-sm-6

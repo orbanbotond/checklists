@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/orbanbotond/subscribem.git
-  revision: 2051f1bbdbc080437b96a00eb94eb981ba3b591d
+  revision: f821456f12e1db38616bdab4e079cb88858d5377
   specs:
-    subscribem (0.0.013)
+    subscribem (0.0.014)
       bootstrap-sass (~> 3.3.3)
       devise
       houser (~> 2.0)
@@ -160,7 +160,7 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (1.8.2)
-    jwt (1.4.0)
+    jwt (1.4.1)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
