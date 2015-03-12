@@ -1,9 +1,9 @@
 class RecipesController < RestfullController
 
   def index
-    if params[:search_term].present?
+    if @quick_search.search_term.present?
       service = AutosuggestSearch.new(current_account)
-      @recipes = service.execute(params[:search_term])
+      @recipes = service.execute(@quick_search.search_term)
       authorize @recipes
     else
       super

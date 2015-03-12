@@ -6,10 +6,9 @@
     .collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         - if  user_signed_in? && current_account.present? && has_recipes?
-          = form_tag recipes_path, class: 'navbar-form navbar-left', role: "search", method: :get
-            .form-group
-              input.form-control placeholder="Search" type="text" name='search_term'
-            button.btn.btn-default type="submit"  Submit
+          = simple_form_for @quick_search, url: recipes_path, html: {class: 'navbar-form navbar-left form-inline', role: "search"}, method: :get, wrapper: :inline_form do |f|
+            = f.input :search_term
+            = f.submit 'Search', class: 'btn btn-default'
 
         - if user_signed_in?
           li.dropdown

@@ -1,8 +1,8 @@
 - if @recipes.present?
   = render 'full', locals: {collection: collection}
-- elsif params[:search_term].present?
+- elsif @quick_search.search_term.present?
   .page-header
-    h2 It looks like there are no recipes with the search result
+    h2 It looks like there are no recipes matching "#{@quick_search.search_term}"
   .text-center
     =link_to 'Create Checklist', main_app.new_checklist_path, class: 'btn btn-success'
 - else

@@ -1,6 +1,9 @@
 .page-header
   h1
-    | Your Recipes
+    - if @quick_search.search_term.present?
+      | Your Recipes matching the "#{@quick_search.search_term}"
+    -else
+      | Your Recipes
 
 table.table.table-stripped.table-hover
   thead

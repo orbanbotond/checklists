@@ -33,7 +33,7 @@ RSpec.describe RecipesController do
     end
 
     context 'with search' do
-      let(:params) { {search_term: recipe_2.name} }
+      let(:params) { {quick_search: { search_term: recipe_2.name } } }
       it "renders the index" do
         get :index, params , header_with_subdomain
         expect(response).to render_template(:index)
