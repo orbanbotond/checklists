@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+
   # devise_for :users, module: :devise
   devise_for :users, class_name: 'Subscribem::User', module: :devise
 
@@ -66,6 +67,7 @@ Rails.application.routes.draw do
 
   mount Subscribem::Engine => "/"
 
+  match '/jeijj', to: 'b#x',via: :get, as: :jeijj
 #TODO how to spec these under a constraints
   resources :recipes, only: [:index] do
     resources :checklists, only: [:index, :new, :create]
