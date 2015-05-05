@@ -90,6 +90,11 @@ RSpec.configure do |config|
   end
 
   config.include(Wisper::RSpec::BroadcastMatcher)
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
+
 end
 
 Capybara.app_host = 'http://example.com'
