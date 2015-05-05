@@ -6,5 +6,4 @@ class UsersController < ApplicationController
     current_account.users.delete user
     redirect_to edit_subscribem_account_path(current_account), success: 'The user has been removed from this account'
   end
-
 end

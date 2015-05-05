@@ -1,5 +1,4 @@
 module InheritedResourcesWithPundit
-
   extend ActiveSupport::Concern
 
   included do
@@ -13,7 +12,7 @@ module InheritedResourcesWithPundit
     alias_method_chain :collection, :authority
   end
 
-protected
+  protected
 
   def collection_with_authority
     collection_without_authority
@@ -38,5 +37,4 @@ protected
     authorize object
     object.save
   end
-
 end

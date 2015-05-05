@@ -6,7 +6,9 @@ module DateAtRelativeToNow
   end
 
   module ClassMethods
-    def applicable_to?(object, context)
+    attr_reader :field
+
+    def applicable_to?(object, _context)
       field = self.field
       object.respond_to? field
     end
@@ -19,14 +21,9 @@ module DateAtRelativeToNow
         if date.present?
           "#{distance_of_time_in_words_to_now date} ago"
         else
-          "Never"
+          'Never'
         end
       end
-
-    end
-
-    def field
-      @field
     end
   end
 end

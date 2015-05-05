@@ -5,14 +5,12 @@ class ApplicationController < ActionController::Base
 
   before_action :fill_quick_search
 
-protected
+  protected
 
   def fill_quick_search
     @quick_search = QuickSearch.new
-    if params[:quick_search].present? && params[:quick_search][:search_term].present?
-      @quick_search.search_term = params[:quick_search][:search_term]
-    else
-    end
+    return unless params[:quick_search].present? &&
+                  params[:quick_search][:search_term].present?
+    @quick_search.search_term = params[:quick_search][:search_term]
   end
-
 end

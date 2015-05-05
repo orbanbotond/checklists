@@ -1,8 +1,6 @@
 FactoryGirl.define do
-
   factory :checklist do
-    name "MyString"
+    name 'MyString'
     recipe
   end
-
 end

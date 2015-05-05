@@ -50,18 +50,17 @@ class ChecklistsController < RestfullController
     exhibit(get_collection_ivar)
   end
 
-private
+  private
 
-  def post_process checklist, account
+  def post_process(checklist, account)
     broadcast :update_recipe, checklist, account
     @recipe = checklist.reload.recipe
     redirect_to recipe_checklists_path(@recipe)
   end
 
   def load_recipe
-    if params[:recipe_id].present?
-      @recipe = Recipe.find params[:recipe_id]
-    end
+    return unless params[:recipe_id].present?
+    @recipe = Recipe.find params[:recipe_id]
   end
 
   def checklist_params
@@ -71,5 +70,4 @@ private
   def no_resource_found
     redirect_to recipes_path, alert: 'There was no resource with that id.'
   end
-
 end

@@ -27,12 +27,12 @@ describe RecipeListener do
       let(:checklist) { create :checklist, recipe: nil }
       let(:listener) { subject }
 
-      it "populates the recipe field" do
+      it 'populates the recipe field' do
         listener.update_recipe checklist, account
         expect(checklist.reload.recipe).to be_present
       end
 
-      it "populates the tasks" do
+      it 'populates the tasks' do
         listener.update_recipe checklist, account
         expect(checklist.recipe.tasks.count).to eq(2)
       end
@@ -48,15 +48,15 @@ describe RecipeListener do
       let(:checklist) { create :checklist, recipe: recipe }
       let(:listener) { subject }
 
-      it "creates a new recipe" do
+      it 'creates a new recipe' do
         listener.update_recipe checklist, account
         expect(checklist.recipe).to_not eq(recipe)
       end
-      it "populates the name" do
+      it 'populates the name' do
         listener.update_recipe checklist, account
         expect(checklist.recipe.name).to eq(checklist.name)
       end
-      it "populates the tasks" do
+      it 'populates the tasks' do
         listener.update_recipe checklist, account
         expect(checklist.recipe.tasks.count).to eq(2)
         expect(checklist.recipe.tasks.map(&:description).sort).to eq([task1.description, task2.description].sort)
@@ -72,11 +72,10 @@ describe RecipeListener do
       end
       let(:listener) { subject }
 
-      it "adds the missing task to the recipe" do
+      it 'adds the missing task to the recipe' do
         listener.update_recipe checklist, account
         expect(checklist.recipe.tasks.count).to eq(2)
       end
     end
-
   end
 end

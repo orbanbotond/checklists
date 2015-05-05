@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe InvitationController do
-  let(:params) { {invitation_form: {email: email}} }
+  let(:params) { { invitation_form: { email: email } } }
   let!(:account) { create :account }
   before do
     allow(subject).to receive(:current_account).and_return(account)
@@ -22,14 +22,14 @@ RSpec.describe InvitationController do
       it 'doesnt create a new user' do
         expect do
           post :create, params
-        end.to_not change{User.count}
+        end.to_not change { User.count }
       end
     end
     context 'user is created and invited' do
       it 'adds the user to the account' do
         expect do
           post :create, params
-        end.to change{account.reload.users.count}.by(1)
+        end.to change { account.reload.users.count }.by(1)
       end
       it 'sends a notification email' do
         post :create, params
@@ -38,7 +38,7 @@ RSpec.describe InvitationController do
       it 'doesnt create a new user' do
         expect do
           post :create, params
-        end.to change{User.count}.by(1)
+        end.to change { User.count }.by(1)
       end
     end
   end
@@ -50,12 +50,11 @@ RSpec.describe InvitationController do
     it 'doesnt create a new user' do
       expect do
         post :create, params
-      end.to_not change{User.count}
+      end.to_not change { User.count }
     end
     it 'doesnt send a notification email' do
       post :create, params
       expect(ActionMailer::Base.deliveries).to be_empty
     end
-
   end
 end

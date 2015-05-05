@@ -1,5 +1,4 @@
 module Subscribem
-
   class UserPolicy
     attr_reader :account, :record
 
@@ -11,7 +10,5 @@ module Subscribem
     def destroy?
       !record.has_role? :admin, account
     end
-
   end
-
 end

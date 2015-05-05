@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 feature 'Listing checklists' do
   extend SubdomainHelpers
@@ -17,15 +17,15 @@ feature 'Listing checklists' do
   let!(:task_2_3) { create :task, checkable: checklist_2, value: true }
 
   within_account_subdomain do
-    scenario "Shows the checklist" do
+    scenario 'Shows the checklist' do
       sign_in_account account
       click_on 'Applied 2 times'
       expect(page).to have_text("Checklists for #{recipe.name}")
-      expect(page).to have_text("#{1} of #{checklist_1.tasks.count} pending")
-      expect(page).to have_text("Complete")
+      expect(page).to have_text("1 of #{checklist_1.tasks.count} pending")
+      expect(page).to have_text('Complete')
     end
 
-    scenario "Do not not show the other recipes checklists" do
+    scenario 'Do not not show the other recipes checklists' do
       sign_in_account account
       click_on 'Applied 2 times'
       expect(page).not_to have_text(other_checklist.name)

@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :recipe do
-    name "MyString"
+    name 'MyString'
     account
   end
-
 end

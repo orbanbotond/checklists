@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'RecipePolicy' do
-
   let(:user) { recipe.account.owner }
   let(:recipe) { build_stubbed :recipe }
   let(:policy) { RecipePolicy.new user, record }
@@ -9,7 +8,7 @@ describe 'RecipePolicy' do
   context 'index? action' do
     context 'the record is an AR/Relation' do
       let(:record) do
-        record = double('asd');
+        record = double('asd')
         allow(record).to receive(:is_a?).and_return(true)
         record
       end
@@ -38,5 +37,4 @@ describe 'RecipePolicy' do
       end
     end
   end
-
 end

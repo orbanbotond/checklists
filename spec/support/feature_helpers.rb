@@ -2,19 +2,21 @@ module Features
   module SessionHelpers
     def sign_in_account(account)
       visit "#{Capybara.default_host}"
-      fill_in "user_email", :with => account.owner.email
-      fill_in "user_password", :with => attributes_for(:user)[:password]
-      click_button "Sign in"
+      fill_in 'user_email', :with => account.owner.email
+      fill_in 'user_password', :with => attributes_for(:user)[:password]
+      click_button 'Sign in'
     end
+
     def sign_in(user = nil, pwd = nil)
       default_pwd = 'Passw0rd'
-      visitor = user || create( :user, email: 'orbanbotond@gmail.com', password: default_pwd, password_confirmation: default_pwd)
+      visitor = user || create(:user, email: 'orbanbotond@gmail.com', password: default_pwd, password_confirmation: default_pwd)
       password = pwd || default_pwd
       visit subscribem.new_user_session_path
-      fill_in "user_email", with: visitor.email
+      fill_in 'user_email', with: visitor.email
       fill_in 'user_password', with: password
       click_on 'Sign in'
     end
+
     def logout
       click_on 'settings_dropdown'
       sleep(2)

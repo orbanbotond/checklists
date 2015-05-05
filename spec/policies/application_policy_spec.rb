@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'ApplicationPolicy' do
-
   let(:user) { nil }
   let(:record) { nil }
   let(:policy) { ApplicationPolicy.new user, record }
@@ -16,7 +15,7 @@ describe 'ApplicationPolicy' do
     before do
       allow_any_instance_of(ApplicationPolicy).to receive(:scope).and_return(User.all)
     end
-    context "exists" do
+    context 'exists' do
       let(:record) { create :user }
       it 'allows' do
         expect(policy.show?).to be_truthy
@@ -61,5 +60,4 @@ describe 'ApplicationPolicy' do
       expect(policy.destroy?).to be_falsey
     end
   end
-
 end

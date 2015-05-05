@@ -1,8 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 
-if ENV["RAILS_ENV"] == 'test' 
-  unless ENV["SKIP_COV"]
+if ENV['RAILS_ENV'] == 'test'
+  unless ENV['SKIP_COV']
     require 'simplecov'
     require 'coveralls'
     SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
@@ -10,7 +10,7 @@ if ENV["RAILS_ENV"] == 'test'
       Coveralls::SimpleCov::Formatter
     ]
     if ENV['CIRCLE_ARTIFACTS']
-      dir = File.join("..", "..", "..", ENV['CIRCLE_ARTIFACTS'], "coverage")
+      dir = File.join('..', '..', '..', ENV['CIRCLE_ARTIFACTS'], 'coverage')
       SimpleCov.coverage_dir(dir)
     end
     # SimpleCov.start 'rails'
@@ -75,11 +75,11 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  config.order = "random"
+  config.order = 'random'
 
   config.before(:all) do
-    DatabaseCleaner.strategy = :truncation, 
-      {:pre_count => true, :reset_ids => true}
+    DatabaseCleaner.strategy = :truncation,
+                               { :pre_count => true, :reset_ids => true }
     DatabaseCleaner.clean_with(:truncation)
   end
   config.before(:each) do
@@ -90,7 +90,6 @@ RSpec.configure do |config|
   end
 
   config.include(Wisper::RSpec::BroadcastMatcher)
-
 end
 
-Capybara.app_host = "http://example.com"
+Capybara.app_host = 'http://example.com'

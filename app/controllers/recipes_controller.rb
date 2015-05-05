@@ -1,5 +1,4 @@
 class RecipesController < RestfullController
-
   def index
     if @quick_search.search_term.present?
       service = AutosuggestSearch.new(current_account)
@@ -13,5 +12,4 @@ class RecipesController < RestfullController
   def end_of_association_chain
     super.scoped_to(current_account)
   end
-
 end

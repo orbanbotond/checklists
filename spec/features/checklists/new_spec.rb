@@ -11,7 +11,7 @@ feature 'Listing checklists' do
       let!(:task_1) { create :task, checkable: recipe, value: true }
       let!(:task_2) { create :task, checkable: recipe, value: false }
 
-      scenario "Have all the tasks and name as defined in the recipe" do
+      scenario 'Have all the tasks and name as defined in the recipe' do
       end
     end
   end

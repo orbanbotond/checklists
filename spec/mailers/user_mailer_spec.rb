@@ -9,15 +9,15 @@ RSpec.describe UserMailer, type: :mailer do
     it 'renders the subject' do
       expect(mail.subject).to match('You have been added to the account')
     end
- 
+
     it 'renders the receiver email' do
       expect(mail.to).to eql([user.email])
     end
- 
+
     it 'renders the sender email' do
       expect(mail.from).to eql(['noreply@tochecklists.tk'])
     end
- 
+
     it 'body' do
       expect(mail.body).to match('Congratulations!')
       expect(mail.body).to match('You have been added to the')

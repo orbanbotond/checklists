@@ -10,10 +10,9 @@ class SubscribemAccountsController < ApplicationController
     @invitation = InvitationForm.new
   end
 
-protected
+  protected
 
   def pundit_user
     current_account
   end
-
 end

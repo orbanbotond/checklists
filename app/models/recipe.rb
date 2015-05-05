@@ -1,11 +1,11 @@
 class Recipe < ActiveRecord::Base
   scoped_to_account
 
-  has_many  :checklists, dependent: :destroy
-  has_many  :tasks, as: :checkable
+  has_many :checklists, dependent: :destroy
+  has_many :tasks, as: :checkable
 
   validates :name,
-          :presence => true
+            presence: true
 
   update_index('search#recipe') { self }
 

@@ -8,10 +8,10 @@ describe Task do
   context 'assotiations' do
     it { is_expected.to belong_to(:checkable) }
   end
-  context "validations" do
+  context 'validations' do
     it { is_expected.to validate_presence_of(:description) }
   end
-  context "index" do
+  context 'index' do
     let(:recipe) { create :recipe }
     let(:task) { create :task, checkable: recipe }
     context 'update' do

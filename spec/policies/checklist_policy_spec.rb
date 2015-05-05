@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'ChecklistPolicy' do
-
   let(:user) { checklist.recipe.account.owner }
   let(:checklist) { build_stubbed :checklist }
   let(:policy) { ChecklistPolicy.new user, record }
@@ -56,5 +55,4 @@ describe 'ChecklistPolicy' do
       end
     end
   end
-
 end

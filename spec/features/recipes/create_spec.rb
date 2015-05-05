@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 feature 'Create a Checklist' do
   extend SubdomainHelpers

@@ -8,5 +8,4 @@ class RecipePolicy < ApplicationPolicy
       record.account.users.include? user
     end
   end
-
 end

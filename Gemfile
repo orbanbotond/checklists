@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'subscribem', :path => "../multitenancy/subscribem"
-gem 'subscribem', :git => 'https://github.com/orbanbotond/subscribem.git'
+gem 'subscribem', git: 'https://github.com/orbanbotond/subscribem.git'
 gem 'awesome_print'
 gem 'display_case'
 
@@ -50,32 +50,30 @@ gem 'coveralls', require: false
 
 group :development do
   gem 'quiet_assets'
-  gem "spring-commands-rspec"
+  gem 'spring-commands-rspec'
   gem 'rails_layout'
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_20]
+  gem 'binding_of_caller', platforms: [:mri_20]
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2'
-  gem "factory_girl_rails", "~> 4.5"
+  gem 'factory_girl_rails', '~> 4.5'
   gem 'database_cleaner', '~> 1.4'
   gem 'capybara', '~> 2.4'
   gem 'wisper-rspec'
 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.1'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.3'
 end
 
 group :test do
   gem 'shoulda-matchers', require: false
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end
 
 group :production do

@@ -14,7 +14,7 @@ class RolifyCreateRoles < ActiveRecord::Migration
     end
 
     add_index(:subscribem_roles, :name)
-    add_index(:subscribem_roles, [ :name, :resource_type, :resource_id ], name: 'index_subscribem_roles_on_name_and_resource_type_and_resourc' )
-    add_index(:subscribem_users_subscribem_roles, [ :user_id, :role_id ])
+    add_index(:subscribem_roles, [:name, :resource_type, :resource_id], name: 'index_subscribem_roles_on_name_and_resource_type_and_resourc')
+    add_index(:subscribem_users_subscribem_roles, [:user_id, :role_id])
   end
 end

@@ -79,5 +79,4 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => "#{ENV['DEPLOYED_DOMAIN']}.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
-
 end

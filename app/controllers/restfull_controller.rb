@@ -9,5 +9,4 @@ class RestfullController < Subscribem::ApplicationController
   def redirect_to_recipes
     redirect_to recipes_path, alert: 'You were not allowed to view that checklist'
   end
-
 end
