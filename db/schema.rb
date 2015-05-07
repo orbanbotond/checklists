@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506093003) do
+ActiveRecord::Schema.define(version: 20150507075625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20150506093003) do
   end
 
   add_index "recipes", ["account_id"], name: "index_recipes_on_account_id", using: :btree
+
+  create_table "rocks", force: :cascade do |t|
+    t.integer  "field_id"
+    t.string   "name"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "rocks", ["field_id"], name: "index_rocks_on_field_id", using: :btree
 
   create_table "subscribem_accounts", force: :cascade do |t|
     t.string   "name"
@@ -124,5 +135,6 @@ ActiveRecord::Schema.define(version: 20150506093003) do
 
   add_foreign_key "checklists", "recipes"
   add_foreign_key "recipes", "subscribem_accounts", column: "account_id"
+  add_foreign_key "rocks", "fields"
   add_foreign_key "tasks", "checklists"
 end
