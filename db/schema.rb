@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310164905) do
+ActiveRecord::Schema.define(version: 20150721163325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20150310164905) do
 
   add_index "checklists", ["recipe_id"], name: "index_checklists_on_recipe_id", using: :btree
 
+  create_table "fields", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "has_flowers"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -33,6 +41,25 @@ ActiveRecord::Schema.define(version: 20150310164905) do
   end
 
   add_index "recipes", ["account_id"], name: "index_recipes_on_account_id", using: :btree
+
+  create_table "recipis", force: :cascade do |t|
+    t.string   "name"
+    t.text     "instructions"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "rocks", force: :cascade do |t|
+    t.integer  "field_id"
+    t.string   "name"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "email"
+  end
+
+  add_index "rocks", ["field_id"], name: "index_rocks_on_field_id", using: :btree
 
   create_table "subscribem_accounts", force: :cascade do |t|
     t.string   "name"
@@ -116,5 +143,6 @@ ActiveRecord::Schema.define(version: 20150310164905) do
 
   add_foreign_key "checklists", "recipes"
   add_foreign_key "recipes", "subscribem_accounts", column: "account_id"
+  add_foreign_key "rocks", "fields"
   add_foreign_key "tasks", "checklists"
 end
