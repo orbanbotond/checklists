@@ -1,9 +1,9 @@
 module DateAtRelativeToNow
   extend ActiveSupport::Concern
 
-  included do
-    include ActionView::Helpers::DateHelper
-  end
+  # included do
+  #   include ActionView::Helpers::DateHelper
+  # end
 
   module ClassMethods
     attr_reader :field
