@@ -16,8 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+
 gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.2'
@@ -48,6 +47,8 @@ gem 'devise_invitable'
 gem 'chewy'
 gem 'coveralls', require: false
 
+gem 'bower-rails'
+
 group :development do
   gem 'quiet_assets'
   gem 'spring-commands-rspec'
@@ -62,6 +63,7 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.4'
   gem 'capybara', '~> 2.4'
   gem 'wisper-rspec'
+  gem 'selenium-webdriver'
 
   gem 'byebug'
 
