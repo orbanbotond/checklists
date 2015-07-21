@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
+# gem 'sprockets', '~> 2.2.0'
+gem 'sprockets', '~>2.12.3'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -48,6 +50,7 @@ gem 'chewy'
 gem 'coveralls', require: false
 
 gem 'bower-rails'
+gem 'angular-rails-templates'
 
 group :development do
   gem 'quiet_assets'
@@ -78,7 +81,10 @@ group :test do
   gem 'simplecov', require: false
 end
 
-group :production do
+gem 'foreman'
+
+group :production, :staging do
   gem 'rails_12factor'
-  # gem 'postmark-rails'
+  gem 'rails_stdout_logging'
+  gem 'rails_serve_static_assets'
 end
