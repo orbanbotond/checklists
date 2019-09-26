@@ -336,7 +336,7 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     wisper (2.0.0)
-    wisper-rspec (0.0.2)
+    wisper-rspec (1.1.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
