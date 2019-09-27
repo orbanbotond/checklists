@@ -37,7 +37,7 @@ gem 'display_case'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'inherited_resources', '~> 1.6'
+gem 'inherited_resources', '~> 1.8'
 
 gem 'pry'
 gem 'pry-nav'
